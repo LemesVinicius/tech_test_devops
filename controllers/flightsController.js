@@ -19,4 +19,18 @@ const addFlights = async (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-module.exports = { addFlights };
+const getFlight = async (req, res) => {
+  const { id } = req.params;
+
+  Flights.findByPk(id)
+    .then((flight) =>
+      flight
+        ? res.status(200).send(JSON.stringify(flight))
+        : res.status(200).send(JSON.stringify({ msg: "Voo inexistente" }))
+    )
+    .catch((err) => res.status(500).send(err));
+};
+
+const getFlights = async (req, res) => {};
+
+module.exports = { addFlights, getFlight, getFlights };
