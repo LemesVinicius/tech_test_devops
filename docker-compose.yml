@@ -5,7 +5,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-      FOO: BAR
+      DATABASE_NAME: test_tech
+      DATABASE_USER: root
+      DATABASE_PASSWORD: teste123
+      DATABASE_HOST: database
     depends_on:
      - database
 

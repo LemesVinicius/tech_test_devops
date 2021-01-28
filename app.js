@@ -6,6 +6,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/indexRoutes');
 var flightsRouter = require('./routes/flightsRoutes');
 
+require('dotenv').config()
+
 var app = express();
 
 app.use(logger('dev'));
