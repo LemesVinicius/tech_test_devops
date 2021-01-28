@@ -1,11 +1,11 @@
 const Flights = require("../models/flightsModels");
 
-const addFlights = async (req, res) => {
+const addFlight = async (req, res) => {
   const { time, location, plane, pilot, status } = req.body;
 
   Flights.sync()
-    .then(async () => {
-      const result = await Flights.create({
+    .then(async () => 
+     Flights.create({
         time_in: time.in,
         time_out: time.out,
         location_from: location.from,
@@ -13,9 +13,12 @@ const addFlights = async (req, res) => {
         plane: plane,
         pilot: pilot,
         status: status,
-      });
-      return res.json(result).status(200).send();
-    })
+      }).then( result => res.json(result).status(200).send() )
+      .catch( err => {
+        console.log(err);
+        return res.json({ msg: "erro ao salvar recurso" }).status(500).send();
+      })
+    )
     .catch((err) => res.status(500).send(err));
 };
 
@@ -46,18 +49,41 @@ const getFlights = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-const deleteFlights = async (req, res) => {
+const deleteFlight = async (req, res) => {
   Flights.destroy({
     where: {
       id: req.params.id,
     },
   })
     .then((flight) =>
-      res.json({ msg: "Excluido com sucesso" }).status(200).send()
+      res.json({ msg: "Voo excluido com sucesso" }).status(200).send()
     )
     .catch((err) =>
-      res.json({ msg: "Não foi possivel alterar recurso" }).status(500).send()
+      res.json({ msg: "Não foi possivel excluir o voo" }).status(500).send()
     );
 };
 
-module.exports = { addFlights, getFlight, getFlights, deleteFlights };
+const updateFlights = async (req, res) => {
+  Flights.update(
+    { ...req.body },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((flight) =>
+      res.json({ msg: "Voo alterado com sucesso" }).status(200).send()
+    )
+    .catch((err) =>
+      res.json({ msg: "Não foi possivel alterar o voo" }).status(500).send()
+    );
+};
+
+module.exports = {
+  addFlight,
+  getFlight,
+  getFlights,
+  deleteFlight,
+  updateFlights,
+};
