@@ -8,6 +8,7 @@ var flightsRouter = require('./routes/flightsRoutes');
 var citiesRouter = require('./routes/citiesRoutes');
 var countriesRouter = require('./routes/countriesRoutes');
 var pilotsRouter = require('./routes/pilotsRoutes');
+var planesRouter = require('./routes/planesRoutes');
 
 require('dotenv').config()
 
@@ -24,6 +25,7 @@ app.use('/flights', flightsRouter);
 app.use('/cities', citiesRouter);
 app.use('/countries', countriesRouter);
 app.use('/pilots', pilotsRouter);
+app.use('/planes', planesRouter);
 
 module.exports = app;
  
