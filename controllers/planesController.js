@@ -1,4 +1,4 @@
-const Plane = require("../models/planesModels");
+const Planes = require("../models/planesModels");
 
 const addPlane = async (req, res) => {
   const { name } = req.body;
