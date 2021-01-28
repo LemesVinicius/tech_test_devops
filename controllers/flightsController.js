@@ -16,7 +16,7 @@ const addFlights = async (req, res) => {
       });
       return res.status(200).send(JSON.stringify(result));
     })
-    .catch(() => res.status(500).send());
+    .catch((err) => res.status(500).send(err));
 };
 
 module.exports = { addFlights };
