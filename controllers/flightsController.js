@@ -31,6 +31,16 @@ const getFlight = async (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-const getFlights = async (req, res) => {};
+const getFlights = async (req, res) => {
+  Flights.findAll()
+    .then((flights) =>
+      flights.length > 0
+        ? res.status(200).send(JSON.stringify(flights))
+        : res
+            .stauts(200)
+            .send(JSON.stringify({ msg: "Não existem voos cadastrados ainda" }))
+    )
+    .catch((err) => res.status(500).send(err));
+};
 
 module.exports = { addFlights, getFlight, getFlights };

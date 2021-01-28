@@ -11,6 +11,8 @@ router.get("/:id", function (req, res, next) {
   return flightsController.getFlight(req, res);
 });
 
-router.get("/", function (req, res, next) {});
+router.get("/", function (req, res, next) {
+  return flightsController.getFlights(req, res);
+});
 
 module.exports = router;
