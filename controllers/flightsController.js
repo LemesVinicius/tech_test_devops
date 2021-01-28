@@ -19,7 +19,7 @@ const addFlights = async (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-const getFlight = async (req, res) => {
+const getFlight = (req, res) => {
   const { id } = req.params;
 
   Flights.findByPk(id)
@@ -31,9 +31,9 @@ const getFlight = async (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-const getFlights = async (req, res) => {
+const getFlights = (req, res) => {
   Flights.findAll({
-    where: { ...req.query }
+    where: { ...req.query },
   })
     .then((flights) =>
       flights.length > 0
@@ -46,5 +46,18 @@ const getFlights = async (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
+const deleteFlights = async (req, res) => {
+  Flights.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((flight) =>
+      res.json({ msg: "Excluido com sucesso" }).status(200).send()
+    )
+    .catch((err) =>
+      res.json({ msg: "Não foi possivel alterar recurso" }).status(500).send()
+    );
+};
 
-module.exports = { addFlights, getFlight, getFlights };
+module.exports = { addFlights, getFlight, getFlights, deleteFlights };
