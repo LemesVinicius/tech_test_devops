@@ -14,7 +14,7 @@ const addFlights = async (req, res) => {
         pilot: pilot,
         status: status,
       });
-      return res.status(200).send(JSON.stringify(result));
+      return res.json(result).status(200).send();
     })
     .catch((err) => res.status(500).send(err));
 };
@@ -25,22 +25,26 @@ const getFlight = async (req, res) => {
   Flights.findByPk(id)
     .then((flight) =>
       flight
-        ? res.status(200).send(JSON.stringify(flight))
-        : res.status(200).send(JSON.stringify({ msg: "Voo inexistente" }))
+        ? res.json(flight).status(200).send()
+        : res.json({ msg: "Voo inexistente" }).status(200).send()
     )
     .catch((err) => res.status(500).send(err));
 };
 
 const getFlights = async (req, res) => {
-  Flights.findAll()
+  Flights.findAll({
+    where: { ...req.query }
+  })
     .then((flights) =>
       flights.length > 0
-        ? res.status(200).send(JSON.stringify(flights))
+        ? res.json(flights).status(200).send()
         : res
+            .json({ msg: "Não existem voos cadastrados ainda" })
             .stauts(200)
-            .send(JSON.stringify({ msg: "Não existem voos cadastrados ainda" }))
+            .send()
     )
     .catch((err) => res.status(500).send(err));
 };
+
 
 module.exports = { addFlights, getFlight, getFlights };
