@@ -5,6 +5,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/indexRoutes');
 var flightsRouter = require('./routes/flightsRoutes');
+var citiesRouter = require('./routes/citiesRoutes');
 
 require('dotenv').config()
 
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
+app.use('/cities', citiesRouter);
 
 module.exports = app;
  
