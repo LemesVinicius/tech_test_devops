@@ -1,12 +1,13 @@
 const Planes = require("../models/planesModels");
 
 const addPlane = async (req, res) => {
-  const { name } = req.body;
+  const { model, registry } = req.body;
 
   Planes.sync()
     .then(async () =>
       Planes.create({
-        name,
+        model,
+        registry,
       })
         .then((result) => res.json(result).status(200).send())
         .catch((err) => {
