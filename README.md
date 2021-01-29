@@ -1,8 +1,8 @@
 # Flights REST API
 
 A aplicação foi desenvolvida em NodeJS utilizando o framework express e ultiliza um banco de dados MySQL para persistência de dados.
-A aplicação foi conteinerizada ultilizando docker e foi criado um `docker-compose.yml` com todas as dependencias para a execução da mesma.
-A documentação da aplicação foi criada ultilizando o swagger e pode ser encontrada via link ou no arquivo `swagger.yaml`
+A aplicação foi conteinerizada utilizando docker e foi criado um `docker-compose.yml` com todas as dependencias para a execução da mesma.
+A documentação da aplicação foi criada utilizando o swagger e pode ser encontrada via link ou no arquivo `swagger.yaml`
 
 ## Install
 
@@ -38,7 +38,7 @@ A documentação da aplicação foi criada ultilizando o swagger e pode ser enco
    Aplicação necessita de uma instacia de banco de dados mySQL para funcionar corretamente. 
    
    ### Tabelas
-   Todas as tabelas são criadas pelo Sequelize ultilizando ORM (Object Relational Mapper). Não havendo necessidade de criar/excutar scripts para as tabelas
+   Todas as tabelas são criadas pelo Sequelize utilizando ORM (Object Relational Mapper). Não havendo necessidade de criar/excutar scripts para as tabelas
    e todas as alterações são versionadas direto no codigo. 
    
 
