@@ -43,5 +43,5 @@ A documentação da aplicação foi criada ultilizando o swagger e pode ser enco
    
 
 # REST API
-A documentação da API foi feita utilizando o SWAGGER, ela pode ser acessa no link  
+A documentação da API foi feita utilizando o SWAGGER, ela pode ser acessada no link após execução da aplicação.   
 http://localhost:3000/swagger
