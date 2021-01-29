@@ -10,6 +10,7 @@ var countriesRouter = require('./routes/countriesRoutes');
 var pilotsRouter = require('./routes/pilotsRoutes');
 var planesRouter = require('./routes/planesRoutes');
 var healthCheckRouter = require('./routes/healthCheckRoutes');
+var swaggerRoute = require('./routes/swaggerRoutes');
 
 require('dotenv').config()
 
@@ -28,6 +29,7 @@ app.use('/countries', countriesRouter);
 app.use('/pilots', pilotsRouter);
 app.use('/planes', planesRouter);
 app.use('/healthcheck', healthCheckRouter);
+app.use('/swagger', swaggerRoute);
 
 module.exports = app;
  
