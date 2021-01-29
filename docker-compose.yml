@@ -11,6 +11,20 @@ services:
       DATABASE_HOST: database
     depends_on:
      - database
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthcheck"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 40s 
+    deploy:
+      resources:
+          limits:
+            cpus: '0.50'
+            memory: 128M
+          reservations:
+            cpus: '0.25'
+            memory: 128M 
 
   database:
     image: "mysql:5"
@@ -18,4 +32,12 @@ services:
       MYSQL_ROOT_PASSWORD: teste123
       MYSQL_DATABASE: test_tech
     ports:
-      - "3306:3306"  
+      - "3306:3306"
+    deploy:
+      resources:
+          limits:
+            cpus: '0.50'
+            memory: 128M
+          reservations:
+            cpus: '0.25'
+            memory: 128M    
