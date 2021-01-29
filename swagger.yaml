@@ -134,7 +134,7 @@ paths:
     post:
       tags:
       - "planes"
-      summary: "Adiciona um novo voo"
+      summary: "Adiciona um novo avião"
       description: ""
       operationId: "addPlane"
       consumes:
@@ -144,7 +144,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dados do aviao a ser salvo"
+        description: "Dados do avião a ser salvo"
         required: true
         schema:
           $ref: "#/definitions/planes"
@@ -156,7 +156,7 @@ paths:
     get:
       tags:
       - "planes"
-      summary: "Retorna todos os avioes"
+      summary: "Retorna todos os aviões"
       description: ""
       operationId: "getPlanes"
       consumes:
@@ -172,7 +172,7 @@ paths:
     put:
       tags:
       - "planes"
-      summary: "Altera um aviao existente"
+      summary: "Altera um avião existente"
       description: ""
       operationId: "updatePlane"
       consumes:
@@ -182,13 +182,13 @@ paths:
       parameters:
       - name: "planeId"
         in: "path"
-        description: "Id do voo"
+        description: "Id do avião"
         required: true
         type: "integer"
         format: "int64"
       - in: "body"
         name: "body"
-        description: "Dados que precisam ser alterados no voo selecionado"
+        description: "Dados que precisam ser alterados no avião selecionado"
         required: true
         schema:
           $ref: "#/definitions/planes"
@@ -200,7 +200,7 @@ paths:
     delete:
       tags:
       - "planes"
-      summary: "Deleta um aviao existente"
+      summary: "Deleta um avião existente"
       description: ""
       operationId: "deletePlane"
       consumes:
@@ -210,7 +210,7 @@ paths:
       parameters:
       - name: "planeId"
         in: "path"
-        description: "Id do voo"
+        description: "Id do avião"
         required: true
         type: "integer"
         format: "int64"
@@ -222,7 +222,7 @@ paths:
     get:
       tags:
       - "planes"
-      summary: "Retorna um aviao especifico"
+      summary: "Retorna um avião especifico"
       description: ""
       operationId: "getPlane"
       consumes:
@@ -232,7 +232,7 @@ paths:
       parameters:
       - name: "planeId"
         in: "path"
-        description: "Id do voo"
+        description: "Id do avião"
         required: true
         type: "integer"
         format: "int64"
@@ -283,7 +283,7 @@ paths:
     put:
       tags:
       - "pilots"
-      summary: "Altera um voo existente"
+      summary: "Altera um piloto existente"
       description: ""
       operationId: "updatePilot"
       consumes:
@@ -356,7 +356,7 @@ paths:
     post:
       tags:
       - "cities"
-      summary: "Adiciona um novo cities"
+      summary: "Adiciona uma nova cidade"
       description: ""
       operationId: "addCity"
       consumes:
@@ -366,7 +366,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dados do cities a ser salvo"
+        description: "Dados da cidade a ser salva"
         required: true
         schema:
           $ref: "#/definitions/cities"
@@ -378,7 +378,7 @@ paths:
     get:
       tags:
       - "cities"
-      summary: "Retorna todos os voos"
+      summary: "Retorna todos as cidades"
       description: ""
       operationId: "getCities"
       consumes:
@@ -394,7 +394,7 @@ paths:
     put:
       tags:
       - "cities"
-      summary: "Altera um voo existente"
+      summary: "Altera uma cidade existente"
       description: ""
       operationId: "updateCity"
       consumes:
@@ -410,7 +410,7 @@ paths:
         format: "int64"
       - in: "body"
         name: "body"
-        description: "Dados que precisam ser alterados no cities selecionado"
+        description: "Dados que precisam ser alterados na cidade selecionado"
         required: true
         schema:
           $ref: "#/definitions/cities"
@@ -422,7 +422,7 @@ paths:
     delete:
       tags:
       - "cities"
-      summary: "Deleta um cities existente"
+      summary: "Deleta uma cidade existente"
       description: ""
       operationId: "deleteCity"
       consumes:
@@ -444,7 +444,7 @@ paths:
     get:
       tags:
       - "cities"
-      summary: "Retorna um cities especifico"
+      summary: "Retorna uma cidade especifica"
       description: ""
       operationId: "getCity"
       consumes:
@@ -467,7 +467,7 @@ paths:
     post:
       tags:
       - "countries"
-      summary: "Adiciona um novo countries"
+      summary: "Adiciona um novo Pais"
       description: ""
       operationId: "addCountry"
       consumes:
@@ -477,7 +477,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Dados do countries a ser salvo"
+        description: "Dados do País a ser salvo"
         required: true
         schema:
           $ref: "#/definitions/countries"
@@ -488,8 +488,8 @@ paths:
           description: "INTERNAL SERVER ERROR"
     get:
       tags:
-      - "flights"
-      summary: "Retorna todos os countries"
+      - "countries"
+      summary: "Retorna todos os Países"
       description: ""
       operationId: "getCountries"
       consumes:
@@ -505,7 +505,7 @@ paths:
     put:
       tags:
       - "countries"
-      summary: "Altera um countries existente"
+      summary: "Altera um País existente"
       description: ""
       operationId: "updateCountry"
       consumes:
@@ -515,13 +515,13 @@ paths:
       parameters:
       - name: "countryId"
         in: "path"
-        description: "Id do pais"
+        description: "Id do País"
         required: true
         type: "integer"
         format: "int64"
       - in: "body"
         name: "body"
-        description: "Dados que precisam ser alterados no countries selecionado"
+        description: "Dados que precisam ser alterados no País selecionado"
         required: true
         schema:
           $ref: "#/definitions/countries"
@@ -533,7 +533,7 @@ paths:
     delete:
       tags:
       - "countries"
-      summary: "Deleta um countries existente"
+      summary: "Deleta um País existente"
       description: ""
       operationId: "deleteCountry"
       consumes:
@@ -543,7 +543,7 @@ paths:
       parameters:
       - name: "countryId"
         in: "path"
-        description: "Id do pais"
+        description: "Id do País"
         required: true
         type: "integer"
         format: "int64"
@@ -555,7 +555,7 @@ paths:
     get:
       tags:
       - "countries"
-      summary: "Retorna um countries especifico"
+      summary: "Retorna um País especifico"
       description: ""
       operationId: "getCountry"
       consumes:
@@ -565,7 +565,7 @@ paths:
       parameters:
       - name: "countryId"
         in: "path"
-        description: "Id do pais"
+        description: "Id do País"
         required: true
         type: "integer"
         format: "int64"
